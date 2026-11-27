@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play with Nody</title>
+<style>
+  :root { color-scheme: dark; --line: rgba(255,255,255,.09); --ink: #e8eef8; --dim: #8a97ad; --accent: #46ebff; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  body {
+    background: radial-gradient(900px 520px at 20% 10%, #1c2c4f 0%, transparent 60%), radial-gradient(800px 520px at 92% 30%, #2b1d4d 0%, transparent 55%), linear-gradient(160deg, #0a0f1c, #141033);
+    color: var(--ink); font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; user-select: none; -webkit-user-select: none;
+  }
+  .hint { position: fixed; left: 14px; top: 10px; color: var(--dim); font-size: 12.5px; max-width: calc(100% - 28px); z-index: 1; }
+  .hint b { color: var(--ink); }
+  .win { position: absolute; background: rgba(21,25,37,.95); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 18px 40px rgba(0,0,0,.45); overflow: hidden; }
+  .bar { height: 26px; display: flex; align-items: center; gap: 8px; padding: 0 10px; cursor: grab; background: rgba(255,255,255,.04); border-bottom: 1px solid var(--line); color: var(--dim); font-size: 12px; touch-action: none; }
+  .bar:active { cursor: grabbing; }
+  .dots { display: flex; gap: 6px; } .dots i { width: 10px; height: 10px; border-radius: 50%; display: block; background: #ff5f57; }
+  .dots i:nth-child(2) { background: #febc2e; } .dots i:nth-child(3) { background: #28c840; }
+  .body { padding: 9px 12px; font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace; color: #9fb0c8; white-space: pre-wrap; overflow: hidden; height: calc(100% - 26px); }
+  .ok { color: #46ffb2; } .dim { color: #5d6a80; } .amb { color: #ffb347; }
+  #dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; padding: 8px 10px 10px; background: rgba(12,16,26,.92); border-top: 1px solid var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .row { display: flex; gap: 6px; align-items: center; overflow-x: auto; scrollbar-width: none; padding: 2px 0; }
+  .row::-webkit-scrollbar { display: none; }
+  .row + .row { margin-top: 6px; }
+  .lbl { flex: none; color: var(--dim); font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; width: 58px; }
+  button { flex: none; font: 600 12.5px/1 inherit; font-family: inherit; color: var(--ink); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.11); border-radius: 9px; padding: 8px 11px; cursor: pointer; white-space: nowrap; }
+  button:hover { border-color: rgba(70,235,255,.5); }
+  button.on { border-color: var(--accent); color: #fff; box-shadow: 0 0 0 1px rgba(70,235,255,.25) inset; }
+  button.fit { display: inline-flex; align-items: center; gap: 6px; }
+  button.fit i { width: 11px; height: 11px; border-radius: 50%; display: block; box-shadow: 0 0 0 1px rgba(255,255,255,.25); }
+  @media (max-width: 560px) { .lbl { display: none; } button { padding: 8px 10px; } }
+</style>
+</head>
+<body>
+<div class="hint"><b>This is the real Nody</b>, running in your browser. Drag and throw him, drag the windows and he rides them, or press a button below.</div>
+
+<div class="win" data-id="w1"><div class="bar"><span class="dots"><i></i><i></i><i></i></span>Terminal — build</div>
+<div class="body"><span class="dim">$</span> npm run build
+<span class="dim">compiling 214 modules…</span>
+<span class="ok">✔</span> done in 41 s
+<span class="amb">Nody:</span> your build is done.</div></div>
+<div class="win" data-id="w2"><div class="bar"><span class="dots"><i></i><i></i><i></i></span>Today</div>
+<div class="body">10:00  Design review
+13:00  Lunch with Priya
+15:30  Ship the release
+<span class="dim">Nody blocked 2 h for focus</span></div></div>
+<div class="win" data-id="w3"><div class="bar"><span class="dots"><i></i><i></i><i></i></span>Notes</div>
+<div class="body">- call the bank
+- buy milk</div></div>
+
+<div id="dock">
+  <div class="row" id="outfits"><span class="lbl">Outfit</span></div>
+  <div class="row" id="moves"><span class="lbl">Moves</span></div>
+</div>
+
+<script src="js/perches.js"></script>
+<script src="js/grit.js"></script>
+<script>
+(function () {
+  const OUTFITS = [['none', 'Factory', '#7e8ba0'], ['ronin', 'Ronin', '#393d55'], ['shinobi', 'Shinobi', '#272c37'], ['pilot', 'Mecha pilot', '#cdd4dd'], ['street', 'Neon street', '#332b4f'],
+    ['spirit', 'Spirit guardian', '#d9d2c3'], ['kaiju', 'Kaiju', '#58b85d'], ['oni', 'Oni', '#96342e'], ['drifter', 'Star drifter', '#74777f'], ['pirate', 'Pirate captain', '#35435f'],
+    ['vampire', 'Vampire', '#45435c'], ['reaper', 'Reaper', '#d6d1c2'], ['shark', 'Shark', '#6a9bc2'], ['pharaoh', 'Pharaoh', '#dfb54c'], ['knight', 'Knight', '#bfc8d4']];
+  const dock = document.getElementById('dock');
+  const wins = [...document.querySelectorAll('.win')];
+  const small = () => innerWidth < 600;
+  const grit = new Grit({ root: document.body, name: 'NODY', scale: small() ? 0.62 : 0.8, sleepAfter: 600, quips: true });
+  window.grit = grit;
+
+  /* pretend windows */
+  function layout() {
+    const W = innerWidth, H = innerHeight - dock.offsetHeight, top = grit.heightPx() + 40;
+    const spec = small()
+      ? [[0.04, 0.30, 0.56 * W, 92], [0.46, 0.52, 0.5 * W, 84], [0.08, 0.76, 0.42 * W, 54]]
+      : [[0.05, 0.30, Math.min(0.36 * W, 380), Math.max(96, 0.25 * H)], [0.56, 0.42, Math.min(0.32 * W, 320), Math.max(90, 0.24 * H)], [0.28, 0.74, Math.min(0.24 * W, 230), Math.max(56, 0.13 * H)]];
+    wins.forEach((el, i) => {
+      if (el.dataset.moved) return;
+      const [fx, fy, w, h] = spec[i];
+      el.style.width = Math.round(w) + 'px'; el.style.height = Math.round(h) + 'px';
+      el.style.left = Math.round(fx * W) + 'px'; el.style.top = Math.round(Math.min(H - h * 0.6, Math.max(top + i * 18, fy * H))) + 'px';
+    });
+    grit.setFloorInset(dock.offsetHeight);
+  }
+  let z = 5, drag = null;
+  wins.forEach((el, i) => {
+    el.style.zIndex = 3 - i;
+    const bar = el.querySelector('.bar');
+    el.addEventListener('pointerdown', () => { el.style.zIndex = ++z; });
+    bar.addEventListener('pointerdown', (e) => { drag = { el, dx: e.clientX - el.offsetLeft, dy: e.clientY - el.offsetTop }; bar.setPointerCapture(e.pointerId); });
+    bar.addEventListener('pointermove', (e) => {
+      if (!drag || drag.el !== el) return;
+      el.style.left = Math.round(Math.max(-el.offsetWidth + 60, Math.min(innerWidth - 60, e.clientX - drag.dx))) + 'px';
+      el.style.top = Math.round(Math.min(innerHeight - dock.offsetHeight - 40, Math.max(0, e.clientY - drag.dy))) + 'px';
+      el.dataset.moved = '1';
+    });
+    bar.addEventListener('pointerup', () => { drag = null; });
+  });
+  layout();
+  addEventListener('resize', layout);
+  new ResizeObserver(() => grit.setFloorInset(dock.offsetHeight)).observe(dock);
+  (function feed() {
+    const list = wins.map((el) => { const r = el.getBoundingClientRect(); return { id: el.dataset.id, x: r.left, y: r.top, w: r.width, h: r.height, z: +el.style.zIndex || 0 }; }).sort((a, b) => b.z - a.z);
+    grit.setPerches(GritPerches.computePerches(list, { ox: 0, oy: 0, width: innerWidth, height: innerHeight - dock.offsetHeight, minLen: 50, minWinW: 70, minWinH: 40 }));
+    requestAnimationFrame(feed);
+  })();
+
+  /* window hops: to another window, or the highest one (that one needs his rockets) */
+  const onPerch = () => grit.surface && grit.surface.type === 'perch' ? grit.surface.wid : null;
+  function hopTo(p) { const m = Math.min(26, (p.x2 - p.x1) / 3); grit._enqueue({ type: 'hop', x: m + Math.random() * (p.x2 - p.x1 - 2 * m) + p.x1, y: p.y }); }
+  function windowHop() {
+    const others = grit.perches.filter((p) => p.wid !== onPerch() && p.x2 - p.x1 > 50);
+    if (others.length) hopTo(others[Math.floor(Math.random() * others.length)]);
+  }
+  function rocket() {
+    const ps = grit.perches.filter((p) => p.x2 - p.x1 > 50).sort((a, b) => a.y - b.y);
+    if (!ps.length) return grit.act('jump');
+    if (onPerch() === ps[0].wid && ps[0].wid !== undefined) { grit._enqueue({ type: 'hop', x: grit.x, y: grit._floor().y }); }     // already up there: down first
+    hopTo(ps[0]);
+  }
+
+  /* buttons */
+  const MOVES = [
+    ['Wave', () => grit.act('wave')], ['Backflip', () => grit.act('flip')], ['Dance', () => grit.act('dance')], ['Fly', () => grit.act('fly')],
+    ['Rocket up', rocket], ['Hop windows', windowHop], ['Sword fight', () => grit.act('fight', { dur: 6 })], ['Shadow fight', () => grit.act('kata', { dur: 10 })],
+    ['Signature move', () => grit.act('signature')], ['Wander', null], ['Sleep', () => grit.act(grit.state === 'sleep' ? 'wake' : 'sleep')],
+  ];
+  const moves = document.getElementById('moves');
+  for (const [label, fn] of MOVES) {
+    const b = document.createElement('button'); b.textContent = label; moves.appendChild(b);
+    if (label === 'Wander') {
+      b.classList.add('on');
+      b.addEventListener('click', () => { const on = !b.classList.contains('on'); b.classList.toggle('on', on); grit.act(on ? 'wander' : 'stop'); });
+    } else if (label === 'Sleep') {
+      b.addEventListener('click', () => { fn(); setTimeout(() => { b.textContent = grit.state === 'sleep' ? 'Wake up' : 'Sleep'; }, 50); });
+    } else b.addEventListener('click', () => { if (grit.state === 'sleep') grit.act('wake'); fn(); });
+  }
+  const outfits = document.getElementById('outfits');
+  const ob = {};
+  for (const [id, label, col] of OUTFITS) {
+    const b = document.createElement('button'); b.className = 'fit' + (id === 'none' ? ' on' : '');
+    b.innerHTML = '<i></i>'; b.querySelector('i').style.background = col; b.append(label);
+    b.addEventListener('click', () => { if (grit.state === 'sleep') grit.act('wake'); grit.setOutfit(id); });
+    outfits.appendChild(b); ob[id] = b;
+  }
+  grit.on('outfit', (id) => { for (const k in ob) ob[k].classList.toggle('on', k === id); });
+
+  /* a hello, and the outfit from the page link (play.html#knight) */
+  const want = location.hash.slice(1);
+  setTimeout(() => { if (OUTFITS.some((o) => o[0] === want)) grit.setOutfit(want); else grit.say("Hi! I'm Nody. Pick an outfit or a move below.", { duration: 5 }); }, 1600);
+  const wear = (id) => { if (OUTFITS.some((o) => o[0] === id)) { if (grit.state === 'sleep') grit.act('wake'); grit.setOutfit(id); } };
+  addEventListener('hashchange', () => wear(location.hash.slice(1)));
+  addEventListener('message', (e) => { if (e.data && typeof e.data.outfit === 'string') wear(e.data.outfit); });      // the outfit gallery on the home page
+})();
+</script>
+</body>
+</html>

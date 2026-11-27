@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nody</title>
+<meta name="description" content="Nody is your own AI buddy on your Mac. Say what you need and he does it: messages, mail, your day, research, Claude Code and the slow jobs. Everything runs on your machine. $19 once.">
+<meta property="og:title" content="Nody — your own AI buddy, on your Mac">
+<meta property="og:description" content="Say what you need and he does it. Runs on your Mac. $19 once, no subscription.">
+<meta property="og:image" content="img/poster.jpg">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><img src="icon.png" alt="">Nody</a>
+  <nav><a class="hide-s" href="#does">What he does</a><a class="hide-s" href="#looks">Characters</a><a class="hide-s" href="#play">Playground</a><a class="hide-s" href="#private">Privacy</a><a href="#faq">Questions</a><a class="btn primary small" href="#price">Buy · $19</a></nav>
+</div></header>
+
+<div class="hero">
+  <iframe id="heroFrame" src="hero.html" title="Nody, live"></iframe>
+  <div class="wrap trust">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pay once, keep him for life</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Runs on your Mac, not on a server</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>14-day refund</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>No account, no tracking</span>
+  </div>
+</div>
+
+<section id="film"><div class="wrap">
+  <div class="head center"><div class="eyebrow"><i></i>The film</div><h2>Say it. Nody does it.</h2><p class="sub">A hundred seconds of Nody on a real Mac, doing real jobs: planning the day, messaging a friend, answering mail, researching, fixing code, reporting back to a phone.</p></div>
+  <div class="film"><video id="promo" controls preload="none" playsinline poster="img/poster.jpg" src="img/nody-promo.mp4"></video></div>
+  <div class="chapters" id="chapters">
+    <button data-t="4">0:04 He lives on your Mac</button><button data-t="14">0:14 Plans your day</button><button data-t="23">0:23 Sends a message</button><button data-t="33">0:33 Answers mail</button><button data-t="46">0:46 Does the research</button><button data-t="58">0:58 Runs Claude Code</button><button data-t="75">1:15 From your phone</button><button data-t="83">1:23 Fifteen characters</button>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <div class="head"><div class="eyebrow"><i></i>How it works</div><h2>Three things, every time.</h2></div>
+  <div class="steps">
+    <div class="step"><span>1</span><h3>You say it.</h3><p>Out loud, with a hotkey, from your phone, or by iMessage. In your own words, no commands to learn.</p></div>
+    <div class="step"><span>2</span><h3>He does it on your Mac.</h3><p>In your real apps: Calendar, Mail, WhatsApp, Terminal, the browser, your files. Not in a chat window you have to copy from.</p></div>
+    <div class="step"><span>3</span><h3>He reads back and reports.</h3><p>Anything that leaves your Mac is read back first and waits for your yes. Long jobs get a word the moment they finish.</p></div>
+  </div>
+</div></section>
+
+<section id="does"><div class="wrap">
+  <div class="head"><div class="eyebrow"><i></i>What he does</div><h2>You talk. He gets it done.</h2><p class="sub">Every example below is a real exchange from the film. He reads back anything that leaves your Mac before it goes, and he waits for your yes.</p></div>
+
+  <div class="show">
+    <div class="shot"><img src="img/messages.jpg" alt="Nody sending a WhatsApp message from the Mac" loading="lazy" width="1280" height="720"></div>
+    <div><div class="eyebrow"><i></i>Messages</div><h3>He sends your messages.</h3><p>Anyone in your WhatsApp, by voice. He writes it, reads it back and waits for your yes. He also tells you who wrote and what they said, so you never have to open the app.</p>
+      <div class="talk"><div class="you"><span>Tell Phool Kakaji on WhatsApp I'll be ten minutes late.</span></div><div class="him"><span>To Phool Kakaji on WhatsApp: “I'll be ten minutes late”. Say yes to send.</span></div><div class="him"><span>Sent to Phool Kakaji.</span></div></div></div>
+  </div>
+
+  <div class="show">
+    <div class="shot"><img src="img/plan.jpg" alt="Nody planning the day around the calendar" loading="lazy" width="1280" height="720"></div>
+    <div><div class="eyebrow"><i></i>Your day</div><h3>He plans your day.</h3><p>He reads your meetings, fits your to-dos into the gaps, sets a reminder for each block and, if you like, puts the blocks in your calendar.</p>
+      <div class="talk"><div class="you"><span>Plan my day.</span></div><div class="him"><span>Today you have 3 meetings. Here's how I'd fit your to-dos in: 5 to 5:50 PM, finish the pitch deck. Want reminders at the start of each block?</span></div></div></div>
+  </div>
+
+  <div class="show">
+    <div class="shot"><img src="img/mail.jpg" alt="Nody drafting an email reply" loading="lazy" width="1280" height="720"></div>
+    <div><div class="eyebrow"><i></i>Mail</div><h3>He answers your email.</h3><p>He tells you which emails need you and skips the rest. Ask for a reply and he drafts it in your tone, from your own sent mail. Nothing goes out until you say send.</p>
+      <div class="talk"><div class="you"><span>Anything important in my email?</span></div><div class="him"><span>Apple's billing is the one thing that needs you. The rest is newsletters and receipts.</span></div><div class="you"><span>Draft a reply, say thanks, I'll get back to you by tomorrow.</span></div><div class="him"><span>Hey, thanks for the invite. I'll get back to you by tomorrow. Say send it, or discard it.</span></div></div></div>
+  </div>
+
+  <div class="show">
+    <div class="shot"><img src="img/research.jpg" alt="Research notes written by Nody" loading="lazy" width="1280" height="720"></div>
+    <div><div class="eyebrow"><i></i>Research</div><h3>He does the research, and writes it up.</h3><p>Give him a topic and get on with your day. He reads several sources, writes a note with a summary, the key points, where the sources disagree and the links, and tells you when it's ready.</p>
+      <div class="talk"><div class="you"><span>Research the best budget mirrorless cameras for beginners.</span></div><div class="him"><span>Your research is ready. The Canon EOS R50 is the most recommended budget camera, for its easy menus, autofocus and sharp video. The full notes are in Documents.</span></div></div></div>
+  </div>
+
+  <div class="show">
+    <div class="shot"><img src="img/claude.jpg" alt="Claude Code fixing failing tests, started by Nody" loading="lazy" width="1280" height="720"></div>
+    <div><div class="eyebrow"><i></i>Code</div><h3>He puts Claude Code to work.</h3><p>Point him at a project and he starts Claude Code on it, in the background, and tells you the moment it's done. It can edit files, it never commits. Needs your own Claude account.</p>
+      <div class="talk"><div class="you"><span>Ask Claude to fix the failing tests in nody-demo.</span></div><div class="him"><span>Claude finished on nody-demo. I fixed the cart bug where the total skipped the first price, by summing all the prices. Nothing was committed.</span></div></div></div>
+  </div>
+
+  <div class="show">
+    <div class="shot"><img src="img/phone.jpg" alt="Nody reporting a finished build to the phone" loading="lazy" width="1280" height="720"></div>
+    <div><div class="eyebrow"><i></i>The slow stuff</div><h3>He watches, so you don't have to.</h3><p>A long build, a big download, an export, a render. Ask him to keep an eye on it, switch to something else, and he speaks up the moment it finishes, on your Mac and on your phone.</p>
+      <div class="talk"><div class="you"><span>Tell me when the build finishes.</span></div><div class="him"><span>The build has finished. The last line says: Build finished. 214 tests passed.</span></div></div></div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><h3>Browses the web for you</h3><p>Opens sites and searches them by voice: YouTube, Wikipedia, Maps, GitHub, any address.</p><span class="say">“Open YouTube and look up lo-fi beats.”</span></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg><h3>Reminders, lists, notes</h3><p>Kept on your Mac, spoken when due, and texted to your phone if you ask.</p><span class="say">“Remind me at five to call the bank.”</span></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><h3>Calendar</h3><p>Adds, moves and cancels events in the Calendar app, with any account you use there.</p><span class="say">“Move my three o'clock to tomorrow.”</span></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h8"/></svg><h3>Ask your documents</h3><p>He indexes the folders you choose and answers from your PDFs and files, naming the file he used.</p><span class="say">“What does the lease say about notice?”</span></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg><h3>Meeting notes</h3><p>He listens to a call you're on, writes the notes, and drafts the follow-up.</p><span class="say">“Start meeting notes.”</span></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg><h3>Hands on your Mac</h3><p>Opens apps, arranges windows, plays music, reads what's on your screen and explains it.</p><span class="say">“Put Chrome on the left and Slack on the right.”</span></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7v6h6"/><path d="M3 13a9 9 0 1 0 3-6.7"/></svg><h3>Undoes his mistakes</h3><p>Reminders, list changes, calendar edits and window moves can all be taken back.</p><span class="say">“Undo that.”</span></div>
+    <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><h3>Only you can wake him</h3><p>An optional voice lock makes him answer your voice only. One question checks his own health.</p><span class="say">“Is everything working?”</span></div>
+  </div>
+</div></section>
+
+<section id="phone"><div class="wrap phone">
+  <div class="shot"><img src="img/phone-app.png" alt="Nody's phone app: a chat with him, and the tasks he is working on" loading="lazy" width="384" height="780"></div>
+  <div><div class="eyebrow"><i></i>Your phone</div><h2>Away from your desk? Text him.</h2>
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3M21 14v7h-7"/></svg><span><b>Scan a code once.</b> Nody's phone app opens in your browser and goes on your home screen. No App Store, no account.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/></svg><span><b>Type or dictate.</b> He does it on your Mac and answers on the phone, out loud if you like.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>He reports back.</b> The app shows what he's working on, and the moment a build, a download or a research job finishes, the message lands on your phone.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg><span><b>Home network only</b>, or your own VPN when you're out. Away from home, you can also text yourself on iMessage and he replies there.</span></li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="looks"><div class="wrap">
+  <div class="head"><div class="eyebrow"><i></i>Characters</div><h2>Fifteen looks. Fifteen personalities.</h2><p class="sub">Each one changes how he looks, how he talks and his signature move. You start with three and unlock the rest as you use him. Pick one and watch him change at the top of the page.</p></div>
+  <div class="looks">
+    <button class="look" data-o="none"><img src="outfits/none.webp" alt="Nody as Factory" loading="lazy" width="240" height="250"><b>Factory</b><span>fresh off the line</span></button>
+    <button class="look" data-o="ronin"><img src="outfits/ronin.webp" alt="Nody as Ronin" loading="lazy" width="240" height="250"><b>Ronin</b><span>a quiet swordsman</span></button>
+    <button class="look" data-o="shinobi"><img src="outfits/shinobi.webp" alt="Nody as Shinobi" loading="lazy" width="240" height="250"><b>Shinobi</b><span>here, then gone</span></button>
+    <button class="look" data-o="pilot"><img src="outfits/pilot.webp" alt="Nody as Mecha pilot" loading="lazy" width="240" height="250"><b>Mecha pilot</b><span>flies first, asks later</span></button>
+    <button class="look" data-o="street"><img src="outfits/street.webp" alt="Nody as Neon street" loading="lazy" width="240" height="250"><b>Neon street</b><span>always dancing</span></button>
+    <button class="look" data-o="spirit"><img src="outfits/spirit.webp" alt="Nody as Spirit guardian" loading="lazy" width="240" height="250"><b>Spirit guardian</b><span>calm and kind</span></button>
+    <button class="look" data-o="kaiju"><img src="outfits/kaiju.webp" alt="Nody as Kaiju" loading="lazy" width="240" height="250"><b>Kaiju</b><span>small, loud, green</span></button>
+    <button class="look" data-o="oni"><img src="outfits/oni.webp" alt="Nody as Oni" loading="lazy" width="240" height="250"><b>Oni</b><span>fierce, loyal</span></button>
+    <button class="look" data-o="drifter"><img src="outfits/drifter.webp" alt="Nody as Star drifter" loading="lazy" width="240" height="250"><b>Star drifter</b><span>a lone gunslinger</span></button>
+    <button class="look" data-o="pirate"><img src="outfits/pirate.webp" alt="Nody as Pirate captain" loading="lazy" width="240" height="250"><b>Pirate captain</b><span>with a parrot</span></button>
+    <button class="look" data-o="vampire"><img src="outfits/vampire.webp" alt="Nody as Vampire" loading="lazy" width="240" height="250"><b>Vampire</b><span>comes out after 8 pm</span></button>
+    <button class="look" data-o="reaper"><img src="outfits/reaper.webp" alt="Nody as Reaper" loading="lazy" width="240" height="250"><b>Reaper</b><span>for deadlines</span></button>
+    <button class="look" data-o="shark"><img src="outfits/shark.webp" alt="Nody as Shark" loading="lazy" width="240" height="250"><b>Shark</b><span>swims on your desktop</span></button>
+    <button class="look" data-o="pharaoh"><img src="outfits/pharaoh.webp" alt="Nody as Pharaoh" loading="lazy" width="240" height="250"><b>Pharaoh</b><span>rules the Dock</span></button>
+    <button class="look" data-o="knight"><img src="outfits/knight.webp" alt="Nody as Knight" loading="lazy" width="240" height="250"><b>Knight</b><span>sword and shield</span></button>
+  </div>
+  <div class="action">
+    <figure data-say="img/say-knight.mp3"><button class="hear" type="button" aria-label="Hear the Knight"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg></button><img src="img/knight.jpg" alt="Nody as a knight on the desktop" loading="lazy" width="1280" height="720"><figcaption>Knight: “On my honour, I stand ready.”</figcaption></figure>
+    <figure data-say="img/say-kaiju.mp3"><button class="hear" type="button" aria-label="Hear the Kaiju"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg></button><img src="img/kaiju.jpg" alt="Nody as a kaiju on the desktop" loading="lazy" width="1280" height="720"><figcaption>Kaiju: “Fear me, or cuddle me. Your call.”</figcaption></figure>
+    <figure data-say="img/say-pirate.mp3"><button class="hear" type="button" aria-label="Hear the Pirate captain"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg></button><img src="img/pirate.jpg" alt="Nody as a pirate captain on the desktop" loading="lazy" width="1280" height="720"><figcaption>Pirate captain: “Ahoy! Hoist the colours.”</figcaption></figure>
+    <figure data-say="img/say-street.mp3"><button class="hear" type="button" aria-label="Hear the Neon street"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20 7 4"/></svg></button><img src="img/street.jpg" alt="Nody in the neon street look on the desktop" loading="lazy" width="1280" height="720"><figcaption>Neon street: “Hoodie on, vibes on.”</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="play"><div class="wrap">
+  <div class="head"><div class="eyebrow"><i></i>Playground</div><h2>Take him for a spin.</h2><p class="sub">The real Nody, running in your browser. Throw him around, drag the windows and watch him ride them, or try his moves: rocket, backflip, dance, sword fight.</p></div>
+  <div class="stage"><iframe id="playFrame" src="play.html" title="Play with Nody" loading="lazy"></iframe></div>
+  <p class="fine"><a href="play.html" target="_blank" rel="noopener">Open the playground full screen</a></p>
+</div></section>
+
+<section id="why"><div class="wrap">
+  <div class="head"><div class="eyebrow"><i></i>Why Nody</div><h2>Not another chat box.</h2><p class="sub">A chat assistant in a browser tab answers questions. Nody is on your desktop and does the job.</p></div>
+  <div class="compare">
+    <div class="ch"><span></span><b>Nody</b><b>A chat tab</b></div>
+    <div class="cr"><span>Lives on your desktop and hops between your windows</span><i class="yes">Yes</i><i class="no">No</i></div>
+    <div class="cr"><span>Does things in your real apps: Calendar, Mail, WhatsApp, Terminal, browser</span><i class="yes">Yes</i><i class="no">No</i></div>
+    <div class="cr"><span>Runs on your Mac. Listening, thinking and speaking stay on your machine</span><i class="yes">Yes</i><i class="no">No</i></div>
+    <div class="cr"><span>Talks back out loud, in a voice and character you choose</span><i class="yes">Yes</i><i class="no">No</i></div>
+    <div class="cr"><span>Watches long jobs and tells you, on your Mac or your phone, when they finish</span><i class="yes">Yes</i><i class="no">No</i></div>
+    <div class="cr"><span>Can use your own Claude account for the hard jobs</span><i class="yes">Yes</i><i class="yes">Some</i></div>
+    <div class="cr"><span>Price</span><i class="yes">$19 once</i><i class="no">A monthly fee</i></div>
+  </div>
+</div></section>
+
+<section id="private"><div class="wrap">
+  <div class="head"><div class="eyebrow"><i></i>Privacy</div><h2>Private by design.</h2><p class="sub">Nody is an app on your Mac, not a service. We run no servers that hear you.</p></div>
+  <div class="pillars">
+    <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg><h3>Stays on your Mac</h3><p>The microphone, speech recognition, his voice, the language model, your reminders, notes, history and document index.</p></div>
+    <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><h3>Online only when you ask</h3><p>The weather, the news, a web search, your mail: he goes to the service that has it, and nowhere else.</p></div>
+    <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><h3>No account, no tracking</h3><p>No sign-up with us and no analytics in the app. The licence check sends your key and your Mac's name, about once a day. Nothing else.</p></div>
+    <div class="pillar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 3-2 5-3 6l-1 5H9l-1-5C7 14 5 12 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/></svg><h3>A second brain is optional</h3><p>For harder jobs, connect your own Claude Code sign-in or Anthropic API key. It uses your account, and you can leave it off.</p></div>
+  </div>
+  <p class="fine">The details are in the <a href="privacy.html">privacy policy</a>.</p>
+</div></section>
+
+<section id="price"><div class="wrap">
+  <div class="head center"><div class="eyebrow"><i></i>Price</div><h2>One price. Yours to keep.</h2></div>
+  <div class="buy">
+    <div class="price">
+      <div class="amount">$19<small>once</small></div>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Yours for life</b>, with every update we release</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>No subscription</b>, no account with us</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Use him on <b>up to 2 of your Macs</b></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>14-day refund</b> if he doesn't work out on your Mac</span></li>
+      </ul>
+      <a class="btn primary" href="#price">Buy Nody · $19</a>
+      <p class="fine">Secure checkout by Dodo Payments, our reseller. Your licence key and download link arrive by email. Already bought? <a href="#price">Download Nody</a>.</p>
+    </div>
+    <div class="needs">
+      <h3>What you need</h3>
+      <ul>
+        <li><b>A Mac with Apple Silicon</b> (M1 or newer) and macOS 13 or newer. Intel Macs aren't supported.</li>
+        <li><b>16 GB of memory</b> for the full experience. With 8 GB he uses a smaller model and is slower.</li>
+        <li><b>About 12 GB of free disk.</b> The first start downloads his language and speech models once, which takes 10 to 25 minutes.</li>
+        <li><b>A microphone.</b> The built-in one is fine.</li>
+        <li><b>Optional:</b> your own Claude Code sign-in or Anthropic API key, for research and coding jobs.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="head"><div class="eyebrow"><i></i>Questions</div><h2>Before you buy.</h2></div>
+  <div class="faq">
+    <details><summary>Does anything I say leave my Mac?</summary><p>Not by default. Listening, speech recognition, the language model and his voice all run on your Mac. If you ask for something online (the weather, a web search, your mail), that request goes to the service that has it. If you connect a second brain, the jobs he hands to it go to Anthropic under your own account.</p></details>
+    <details><summary>Do I need a Claude or ChatGPT subscription?</summary><p>No. Nody works with the model on your Mac alone. Connecting your own Claude Code sign-in or Anthropic API key is optional and makes him better at research, coding jobs, reading your screen and long mail threads. Nody is not made by or affiliated with Anthropic.</p></details>
+    <details><summary>Which mail and calendar accounts work?</summary><p>Any account you have added to the Mail and Calendar apps on your Mac: iCloud, Google, Outlook and others. Google accounts can also be connected directly.</p></details>
+    <details><summary>How do WhatsApp messages work?</summary><p>He operates the WhatsApp app installed on your Mac, and reads your chats from that app. Nothing goes through our servers. It isn't an official WhatsApp integration, so it's your account and your responsibility. He reads every message back and waits for a yes before sending.</p></details>
+    <details><summary>How does the phone app work?</summary><p>Switch it on in his Setup window and scan the code with your phone. The app runs on your home network (or over your own VPN, such as Tailscale, when you're out). Your Mac needs to be awake with Nody running. Away from home without a VPN, text yourself on iMessage and he replies there.</p></details>
+    <details><summary>Why is the first start slow?</summary><p>He downloads about 10 GB once: the language model, the speech models and the software that runs them. After that he starts in about half a minute and works offline.</p></details>
+    <details><summary>How good is he on 8 GB?</summary><p>He falls back to a smaller model that is slower and weaker at multi-step requests. We recommend 16 GB. If he doesn't run well on your Mac, the 14-day refund covers you.</p></details>
+    <details><summary>Is there a free trial?</summary><p>No. Nody is a one-time purchase with a 14-day refund: if he doesn't work out on your Mac, write to us and you get your money back.</p></details>
+    <details><summary>Can I move my licence to a new Mac?</summary><p>Yes. In his Setup window choose Move to another Mac, then enter the key on the new one.</p></details>
+    <details><summary>How do I get help?</summary><p>Write to <code>motormaniac10@gmail.com</code>. Saying “is everything working?” to Nody first often finds the cause.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refund.html">Refunds</a><a href="#price">Download</a><span>Support: <code>motormaniac10@gmail.com</code></span></div>
+  <p>© 2026 Abhimanyu Malik. Nody is an independent product. Mac and macOS are trademarks of Apple Inc. Claude is a trademark of Anthropic. WhatsApp is a trademark of WhatsApp LLC.</p>
+</div></footer>
+
+<script>
+  const hero = document.getElementById('heroFrame');
+  const promo = document.getElementById('promo');
+  for (const b of document.querySelectorAll('#chapters button')) b.addEventListener('click', () => { promo.currentTime = +b.dataset.t; promo.play(); promo.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+  let voice = null;
+  for (const f of document.querySelectorAll('figure[data-say]')) f.querySelector('.hear').addEventListener('click', () => {
+    if (voice) { voice.pause(); }
+    voice = new Audio(f.dataset.say); voice.play().catch(() => {});
+    f.classList.add('playing'); voice.addEventListener('ended', () => f.classList.remove('playing'));
+  });
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver((es) => { for (const e of es) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }, { rootMargin: '0px 0px -8% 0px' });
+    for (const el of document.querySelectorAll('.show, .card, .step, .pillar, .look, .action figure, .price, .needs, .phone > div, .compare, .head')) { el.classList.add('reveal'); io.observe(el); }
+  }
+  const links = [...document.querySelectorAll('.top nav a[href^="#"]')];
+  if ('IntersectionObserver' in window) {
+    const nav = new IntersectionObserver((es) => { for (const e of es) if (e.isIntersecting) for (const a of links) a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }, { rootMargin: '-40% 0px -55% 0px' });
+    for (const a of links) { const sec = document.querySelector(a.getAttribute('href')); if (sec) nav.observe(sec); }
+  }
+  for (const b of document.querySelectorAll('.look')) b.addEventListener('click', () => {
+    hero.contentWindow.postMessage({ outfit: b.dataset.o }, '*');
+    document.querySelector('.hero').scrollIntoView({ behavior: 'smooth' });
+  });
+  addEventListener('message', (e) => { if (e.data && typeof e.data.scroll === 'string') { const el = document.querySelector(e.data.scroll); if (el) el.scrollIntoView({ behavior: 'smooth' }); } });
+</script>
+</body>
+</html>
